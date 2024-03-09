@@ -135,3 +135,66 @@ if __name__ == "__main__":
     restaurants_latlng = scraper.scrape() # scrape the restaurants latlng
     scraper.save(restaurants_latlng)  # save the restaurants latlng to a json file
     driver.tear_down() # tear down the driver
+
+
+
+//second method
+
+# /*
+# import requests
+# from bs4 import BeautifulSoup
+# import json
+# import gzip
+
+# class GrabFoodScraper:
+#     def __init__(self, location_url):
+#         self.location_url = location_url
+#         self.base_url = "https://www.grab.com/sg/"
+#         self.headers = {
+#             'User-Agent': 'Your User Agent',
+#             'Accept-Language': 'en-US,en;q=0.9',
+#         }
+
+#     def fetch_restaurant_list(self):
+#         # Fetch HTML content from the website
+#         response = requests.get(self.base_url + self.location_url, headers=self.headers)
+#         if response.status_code == 200:
+#             html_content = response.text
+#             soup = BeautifulSoup(html_content, 'html.parser')
+
+#             # Extract restaurant details and create a unique restaurant list
+#             restaurant_list = self.extract_restaurant_details(soup)
+
+#             # Extract delivery fee and estimated delivery time for one location
+#             delivery_info = self.extract_delivery_info(soup)
+
+#             # Save the extracted data in ndjson format
+#             self.save_to_ndjson(restaurant_list, delivery_info)
+
+#     def extract_restaurant_details(self, soup):
+#         # Implement logic to extract restaurant details from the soup
+#         # ...
+
+#     def extract_delivery_info(self, soup):
+#         # Implement logic to extract delivery fee and estimated delivery time from the soup
+#         # ...
+
+#     def save_to_ndjson(self, restaurant_list, delivery_info):
+#         # Combine restaurant_list and delivery_info into a single data structure
+#         result_data = {
+#             'restaurants': restaurant_list,
+#             'delivery_info': delivery_info
+#         }
+
+#         # Save the data in ndjson format and gzip it
+#         with gzip.open('grab_food_data.ndjson.gz', 'wt') as f:
+#             f.write(json.dumps(result_data))
+
+# if __name__ == "__main__":
+#     # Initialize the scraper with a specific location URL
+#     scraper = GrabFoodScraper("PT-Singapore-Choa-Chu-Kang-North-6-Singapore-689577")
+    
+#     # Fetch and process the restaurant list
+#     scraper.fetch_restaurant_list()
+
+# */
